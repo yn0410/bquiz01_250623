@@ -19,7 +19,40 @@ function to($url){
 }
 
 class DB{
-    
+    private $dsn="mysql:host=localhost;dbname=db07;charset=utf8";
+    private $pdo;
+    private $table;
+
+    function __construct($table){
+        $this->table=$table;
+        $this->pdo=new PDO($this->dsn, 'root', '');
+    }
+
+    function all(...$arg){
+
+    }
+
+    function find($id){
+
+    }
+
+    function save($array){
+
+    }
+
+    function del($id){
+
+    }
+    private function arraytosql($array){
+        $tmp=[];
+        foreach($array as $key =>$value){
+            $tmp[]="`$key`='$value'";
+        }
+        return $tmp;
+    }
+
+
+
 }
 
 
