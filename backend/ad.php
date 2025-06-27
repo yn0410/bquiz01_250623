@@ -9,7 +9,7 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
-                $rows=$Ad->all();
+                $rows=${ucfirst($do)}->all();
                 foreach($rows as $row):
                 ?>
                 <tr>
@@ -31,9 +31,9 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <input type="hidden" name="table" value="ad">
+                    <input type="hidden" name="table" value="<?= $do;?>">
                     <td width="200px"><input type="button"
-                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;, './modal/ad.php')" value="新增動態文字廣告">
+                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;, './modal/<?=$do;?>.php?table=<?=$do;?>')" value="新增動態文字廣告">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
