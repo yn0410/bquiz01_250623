@@ -1,18 +1,27 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">進站總人數管理</p>
-    <form method="post" action="./api/edit.php">
-        <?php
-        $rows=${ucfirst($do)}->all();
-        ?>
-        <label style="background:#F3DA49;">進站總人數：</label>
-        <input type="text" name="" id="" value="0">
+    <form method="post" action="./api/edit_column.php">
+        <table width="50%" style="margin:auto;">
+            <tbody>
+                <tr class="yel">
+                    <td width="50%">進站總人數</td>
+                    <td width="50%">
+                        <?php
+                        $total=$Total->find(1);
+                        ?>
+                        <input type="text" name="text" value="<?= $total['total']?>">
+                        <input type="hidden" name="id" value="<?= $row['id'];?>">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
                     <input type="hidden" name="table" value="<?= $do;?>">
-                    <td class="cent">
-                        <input type="submit" value="修改確定"><input type="reset" value="重置">
-                    </td>
+                    <td width="200px"></td>
+                    <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
             </tbody>
         </table>
