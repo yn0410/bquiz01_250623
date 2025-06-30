@@ -1,9 +1,9 @@
-<h3 style="text-align: center;">新增校園映像</h3>
+<h3 style="text-align: center;">新增最新消息資料</h3>
 <hr>
 <form action="./api/insert.php" method='post' enctype="multipart/form-data">
     <div>
-        <label>校園映像圖片：</label>
-        <input type="file" name="img">
+        <label>最新消息資料：</label>
+        <textarea name="text" style="width:200px;height:100px;vertical-align:middle"></textarea>
     </div>
     <div>
         <input type="hidden" name="table" value="<?=$_GET['table'];?>">

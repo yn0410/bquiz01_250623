@@ -11,19 +11,19 @@
                 </tr>
                 <?php
                 // "分頁"功能
-                /* $all=count(${ucfirst($do)}->all());
+                $all=count(${ucfirst($do)}->all());
                 $div=3;
                 $pages=ceil($all/$div);
                 $now=$_GET['p']??1;
                 $start=($now-1)*$div;
 
-                $rows=${ucfirst($do)}->all(" limit $start,$div"); */
+                $rows=${ucfirst($do)}->all(" limit $start,$div");
                 // $rows=${ucfirst($do)}->all();
                 foreach($rows as $row):
                 ?>
                 <tr>
                     <td>
-                        <img src="./images/<?=$row['img'];?>" style="width:120px;">
+                        <img src="./images/<?=$row['img'];?>" style="width:100;height:68px;">
                     </td>
                     <td>
                         <input type="checkbox" name="sh[]" value="<?= $row['id']?>" <?=($row['sh']==1)?"checked":"";?>>
