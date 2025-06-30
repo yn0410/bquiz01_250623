@@ -10,29 +10,26 @@ if(!empty($_FILES['img']['tmp_name'])){
 $table=$_POST['table'];
 $db=${ucfirst($table)};
 
-if($_POST['table']=='title'){
-    $_POST['sh']=0; //預設為都不顯示
-}else{
-    $_POST['sh']=1; //預設為都顯示
+switch($table){
+    case 'title':
+        $_POST['sh']=0; //預設為都不顯示
+        break;
+    case 'admin':
+        break;
+    default:
+        $_POST['sh']=1; //預設為都顯示
+        break;
 }
+
+// if($_POST['table']=='title'){
+//     $_POST['sh']=0; //預設為都不顯示
+// }else{
+//     $_POST['sh']=1; //預設為都顯示
+// }
 
 unset($_POST['table']);
 
 $db->save($_POST); //db裡沒有'table'，所以會失敗，所以要加unset()
-
-
-/* $table='title';
-$db=${ucfirst($table)};
-$db=$Title;
-
-switch($table){
-    case 'ad':
-        $AD->save($_POST);
-        break;
-    case 'title':
-        $Title->save($_POST);
-        break;
-} */
 
 to("../backend.php?do=$table");
 ?>

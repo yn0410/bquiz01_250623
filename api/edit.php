@@ -16,6 +16,8 @@ foreach($_POST['id'] as $key => $id){
                 $row['sh']=($_POST['sh']==$id)?1:0; //有被選到=1;沒被選到=0;
                 break;
                 case 'admin':
+                    $row['acc']=$_POST['acc'][$key];
+                    $row['pw']=$_POST['pw'][$key];
                     break;
                 case 'menu':
                     break;
