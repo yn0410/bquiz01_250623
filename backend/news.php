@@ -10,7 +10,15 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=${ucfirst($do)}->all();
+                // "分頁"功能
+                /* $all=count(${ucfirst($do)}->all());
+                $div=3;
+                $pages=ceil($all/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+
+                $rows=${ucfirst($do)}->all(" limit $start,$div"); */
+                // $rows=${ucfirst($do)}->all();
                 foreach($rows as $row):
                 ?>
                 <tr>
@@ -34,6 +42,22 @@
                 ?>
             </tbody>
         </table>
+        <!-- 分頁 功能 -->
+        <div class="cent">
+            <?php if($now-1>0): ?>
+                <a href="?do=<?=$do;?>&p=<?=$now-1;?>"><</a>
+            <?php endif;?>
+                
+            <?php for($i=1; $i<=$pages; $i++):
+                $size=($now==$i)?'24px':'';    
+            ?>
+                <a href="?do=<?=$do;?>&p=<?=$i;?>" style="font-size:<?=$size;?>"><?=$i;?></a>
+            <?php endfor;?>
+                
+            <?php if($now+1<=$pages): ?>
+                <a href="?do=<?=$do;?>&p=<?=$now+1;?>">></a>
+            <?php endif;?>
+        </div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
