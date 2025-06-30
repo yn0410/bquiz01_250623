@@ -15,21 +15,17 @@ foreach($_POST['id'] as $key => $id){
                 $row['text']=$_POST['text'][$key]; //改資料庫內容
                 $row['sh']=($_POST['sh']==$id)?1:0; //有被選到=1;沒被選到=0;
                 break;
-            case 'ad':
-                $row['text']=$_POST['text'][$key]; //改資料庫內容
-                $row['sh']=(isset($_POST['sh']) && in_array($id, $_POST['sh']))?1:0; //有被選到=1;沒被選到=0;
+                case 'admin':
+                    break;
+                case 'menu':
+                    break;
+                default:
+                    if(isset($row['text'])){
+                        $row['text']=$_POST['text'][$key]; //改資料庫內容
+                    }
+                    $row['sh']=(isset($_POST['sh']) && in_array($id, $_POST['sh']))?1:0; //有被選到=1;沒被選到=0;                    
                 break;
-            case 'mvim':
-                $row['sh']=(isset($_POST['sh']) && in_array($id, $_POST['sh']))?1:0; //有被選到=1;沒被選到=0;
-                break;
-            case 'image':
-                break;
-            case 'news':
-                break;
-            case 'admin':
-                break;
-            case 'menu':
-                break;
+
         }
         $db->save($row); //$row 有id ，所以是更新內容(不是新增內容)
         // dd($row);
