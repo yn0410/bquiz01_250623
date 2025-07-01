@@ -88,6 +88,14 @@
                 <div
                     style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;">
                     <span class="t botli">最新消息區
+						<?php
+						if(count($News->all(['sh'=>1]))>5){
+						?>
+							<a href="" style="float:right;">More...</a>
+						<?php
+						}
+						
+						?>
                     </span>
                     <ul class="ssaa" style="list-style-type:decimal;">
 						<?php
