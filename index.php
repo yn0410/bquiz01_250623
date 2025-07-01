@@ -36,11 +36,26 @@
 					<?php
 					$mains=$Menu->all(['main_id'=>0]);
 					foreach($mains as $main){
-						echo "<a href='{$main['href']}'>";
 						echo "<div class='mainmu'>";
+						echo "<a href='{$main['href']}'>";
 						echo $main['text'];
-						echo "</div>";
 						echo "</a>";
+						if($Menu->count(['main_id'=>$main['id']])>0){
+							$subs=$Menu->all(['main_id'=>$main['id']]);
+							echo "<div class='mw'>";
+							foreach($subs as $sub){
+								echo "<div style='padding:5px 2px;'>";
+								echo "<div class='mainmu2'>";
+								echo "<a href='{$sub['href']}'>";
+								echo $sub['text'];
+								echo "</a>";
+								echo "</div>";
+								echo "</div>";
+							}
+							echo "</div>";
+						}
+						echo "</div>";
+
 					}
 					?>
                 </div>
