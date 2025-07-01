@@ -81,6 +81,7 @@
                             nowpage--;
                         }
                         if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+						// if (x == 2 && (nowpage + 1) <= num - 3) { //用這行程是，才能顯示6張以上的照片
                             nowpage++;
                         }
                         $(".im").hide()
