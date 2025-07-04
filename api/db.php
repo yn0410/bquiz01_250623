@@ -133,4 +133,14 @@ $Total=new DB('total');
 $Bottom=new DB('bottom');
 
 
+// 紀錄網站瀏覽人次
+if(!isset($_SESSION['visit'])){
+    // 第一次來訪
+    $t=$Total->find(1);
+    $t['total']++;
+    $Total->save($t);
+    $_SESSION['visit']=1;
+}
+
+
 ?>
